@@ -20,9 +20,16 @@ Set Up
 --
 It's easy to set up, just change the **feedURL** with the feed URL that you would like to track, and enter your SendGrid API details for email notification under the config area. Change the **tracking_keyphrases** to the keyphrase you would like to track in the title or description. Change the **minutes** variable to set the time between checking of the feed.
 ```javascript
-var feedURL = "< Your RSS Feed URL >";
-var api_user = "< Your SendGrid Username >";
-var api_key = "< Your SendGrid Password >";
-var tracking_keyphrases = ['keyphrase_1', 'keyphrase_2', 'keyphrase_3'];
+// ============ Config ============
+var feedURL = "<Feed URL>";
+var tracking_keyphrases = ['key phrase 1', 'key phrase 2', 'key phrase 3'];
 var minutes = 5;
+
+// SendGrid Config
+var api_user = '<SendGrid Username>';
+var api_key = '<SendGrid Password>';
+var sendToEmail = '<email to send to>';
+var sendFromEmail = '<email from>'
+var subject = '<email subject>';
+// ============ End of Config ============
 ```
