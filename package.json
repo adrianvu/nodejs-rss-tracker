@@ -1,0 +1,41 @@
+{
+  "name": "RSS-Tracker-App",
+  "version": "1.0.0",
+  "description": "A Nodejs app that tracks RSS Feeds",
+  "keywords": [
+    "rss",
+    "feeds",
+    "tracker"
+  ],
+  "author": {
+    "name": "Adrian Vu",
+    "email": "me@adrianvu.sg",
+    "url": "http://www.adrianvu.sg/"
+  },
+  "homepage": "http://www.adrianvu.sg/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adrianvu/nodejs-rss-tracker"
+  },
+
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+
+  "dependencies": {
+    "express": "*",
+	"socket.io": "*",
+	"request": "*",
+    "parserss": "*",
+    "sendgrid": "*"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+	
+	"scripts": { 
+	"start": "node server.js --websocket-port=8000 --log-level=1" 
+  },
+  "private": true,
+  "main": "server.js"
+}

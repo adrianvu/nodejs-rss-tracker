@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	 <title>Latest RSS Activity</title>
+	 <meta name="viewport" content="initial-scale=1.0, user-scalable=0">
+	 <meta name="apple-mobile-web-app-capable" content="yes" />
+	 <meta property="og:title" content="RSS Feed Tracker"/>
+	 <meta property="og:site_name" content="RSS Feed Tracker"/>
+	 <meta property="og:description" content="A simple Nodejs app that tracks RSS feeds for a set of keywords in the title and notify you by email using SendGrid."/>
+	 <meta property="og:url" content="https://github.com/adrianvu/nodejs-rss-tracker/"/>
+	 <meta property="og:type" content="website"/>
+	 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="//oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+	<style>
+	body {
+		padding: 0 0 0 20px;
+		color: #1efd00;
+		font-family: monospace;
+		font-size: 12px;
+		background-color: #323232;
+	}
+	a, a:hover{
+		color: #1efd00;
+		text-decoration:underline;
+	}
+	#input {
+		position:fixed;
+		bottom:0px;
+		background-color: #323232;
+		width:100%;
+		padding: 5px 0;
+		height: 30px;
+	}
+	#terminal {
+		height:100%;
+		overflow-y:auto
+	}
+	.modal-content,.modal-content a, .modal-content a:hover {
+		color: #000;
+	}
+	.server { color: #fff; }
+	span.cursor{background-color:#1efd00;margin-left:0}
+	span.hidden{display:none}
+	</style>
+  </head>
+  <body>
+	<div id="terminal">
+	</div>
+	<div id="input">guest@adrianvu.sg:/$
+	<span class="text-input"><span class="cursor">&nbsp;</span></span>
+	<input style="position:fixed;bottom:-100px;" id="command" type="text" />
+	</div>
+	
+	<div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="helpModalLabel">Available Commands</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+						<ul>
+						<li>pause - pause/resume stream of twitter data</li>
+						<li>color - change color of fonts (eg. color white)</li>
+						<li>auto [slow,fast,off]- change speed of auto-scrolling (eg. auto slow)</li>
+						<li>users - get the number of users currently connected</li>
+						<li>clear - clears the terminal screen</li>
+						<li>help - shows this help dialog</li>
+						<li>about - shows the about dialog</li>
+						</ul>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="aboutModalLabel">About This App</h4>
+				</div>
+				<div class="modal-body">
+					<p>
+					<ul>
+						<li>Powered by OpenShift</li>
+						<li>Build using Node.js and Socket.io</li>
+						<li>Tracking RSS Feeds for a set of keywords, once matching title found, an email will be sent</a></li>
+						<li>Find out other projects built by me @ <a href="http://www.adrianvu.sg">www.adrianvu.sg</a></li>
+					</ul>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+    <script src="//code.jquery.com/jquery-1.11.1.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="app.js"></script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	  
+	  ga('create', 'UA-6658081-4', 'adrianvu.sg');
+	  ga('send', 'pageview');
+	</script>
+  </body>
+</html>
